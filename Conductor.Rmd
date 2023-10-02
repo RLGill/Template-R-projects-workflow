@@ -1,0 +1,32 @@
+---
+title: Conductor
+author: Author name
+date: Creation date
+---
+
+
+# Read Me!
+
+This project does the following:
+- describe task(s) 1
+- describe task(s) 2 etc.
+
+
+# Code starts here:
+
+
+# 00 Packages
+
+```{r install & load dependencies}
+
+source("./00-R-scripts/Install-dependencies.R", chdir = TRUE)
+
+```
+
+```{r add packages}
+
+# install and load extra packages here while working:
+
+# after each session, move these to 'Install-packages.R', run the script and commit changes to load them with the previous chunk in future sessions
+
+```
