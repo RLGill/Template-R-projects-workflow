@@ -1,6 +1,6 @@
 source("renv/activate.R")
 #### -- Consistent File Downloads -- ####
-if(.Platform$OS.type == "windows") {
+if (.Platform$OS.type == "windows") {
   options(
     download.file.method = "wininet"
   )
@@ -12,7 +12,7 @@ if(.Platform$OS.type == "windows") {
 
 #### -- Set CRAN -- ####
 options(
-  repos=c("https://cran.rstudio.com/")
+  repos = c("https://cran.rstudio.com/")
 )
 
 #### -- Factors Are Not Strings -- ####
@@ -59,4 +59,3 @@ if (interactive()) {
   library(fs)
   library(devtools)
 }
-
