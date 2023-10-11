@@ -13,6 +13,7 @@ RnwWeave: knitr
 LaTeX: XeLaTeX
 
 AutoAppendNewline: Yes
-StripTrailingWhitespace: Yes
+
+MarkdownWrap: Sentence
 
 SpellingDictionary: en_AU

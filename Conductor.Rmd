@@ -1,32 +1,96 @@
 ---
-title: Conductor
-author: Author name
-date: Creation date
+title: "Conductor"
+author: Raissa L Gill
+date: 2023-10-12
+description: Conductor notebook for running R projects
 ---
-
 
 # Read Me!
 
-This project does the following:
-- describe task(s) 1
-- describe task(s) 2 etc.
+This R notebook contains the following:
+* Install and load packages currently in your project's lockfile.
+* Add extra packages as your project progresses.
+* Do some coding.
+* Format all R code in your project.
 
 
 # Code starts here:
 
-
 # 00 Packages
 
-```{r install & load dependencies}
+```{r Current dependencies}
 
-source("./00-R-scripts/Install-dependencies.R", chdir = TRUE)
+# Install and load packages in project's lockfile
+
+source("./00-R-code/Install-dependencies.R", chdir = TRUE)
 
 ```
 
-```{r add packages}
+```{r Add packages}
 
-# install and load extra packages here while working:
+# During a coding session ----------------------------------------------------|
 
-# after each session, move these to 'Install-packages.R', run the script and commit changes to load them with the previous chunk in future sessions
+# As you progress and need additional packages for your project, install and 
+# load them here by following these steps:
+# 1. Add names of any packages to the extra_packages() vector below.
+# 2. Run this chunk.
+
+# The code:
+extra_packages <- c("ggplot2", "ggpubr")
+install_packages <- extra_packages[!extra_packages %in% installed.packages()]
+for (lib in install_packages) install.packages(lib, dependencies = TRUE)
+lapply(extra_packages, library, character.only = TRUE)
+
+# After each coding session --------------------------------------------------|
+
+# Save any extra packages in your project's lockfile for future use:
+# 1. Navigate to 00-R-code from Files pane > open "Install-dependencies.R".
+# 2. Add extra package names to the packages_record() vector.
+# 3. Run the script > save & close.
+# 4. In this chunk, remove package name(s) from the extra_packages() vector.
+# 5. Run this chunk > save.
+
+```
+
+
+# 01 Code
+
+```{r Coding task}
+
+# I am coding now
+# So fun
+
+```
+
+
+# 02 Style
+
+```{r Format code}
+
+# Warning - run this chunk line by line!
+
+# Select/load a style guide
+if (FALSE) {
+  
+  # First time
+  lintr::use_lintr(type = "tidyverse") # Can change the style here
+
+  # Thereafter
+  lintr::lint_dir()
+}
+
+# Check entire directory
+lintr::lint_dir()
+
+# Format all code in your project according to the selected style guide
+styler::style_dir("./")
+
+# Manually check the modified code from above to ensure it works and you're
+# happy with any change(s).
+
+# Check directory again for changes requiring user modification
+lintr::lint_dir()
+
+# Make the manual modification(s) from above
 
 ```
