@@ -5,13 +5,15 @@ date: 2023-10-12
 description: Conductor notebook for running R projects
 ---
 
-# Read Me!
+# Read me!
 
 This R notebook contains the following:
-* Install and load packages currently in your project's lockfile.
-* Add extra packages as your project progresses.
-* Do some coding.
-* Format all R code in your project.
+* 00 Packages - install and load dependencies, including those currently saved
+  in your project's lockfile and additional packages.
+* 01 Code - place-holder for your code
+* 02 Style - format code in your project's directory
+
+Dependencies: "renv" (pre-loaded with template)
 
 
 # Code starts here:
@@ -32,22 +34,22 @@ source("./00-R-code/Install-dependencies.R", chdir = TRUE)
 
 # As you progress and need additional packages for your project, install and 
 # load them here by following these steps:
-# 1. Add names of any packages to the extra_packages() vector below.
+# 1. Add names of any packages to the list_packages() vector below.
 # 2. Run this chunk.
 
 # The code:
-extra_packages <- c("ggplot2", "ggpubr")
-install_packages <- extra_packages[!extra_packages %in% installed.packages()]
+list_packages <- c("ggplot2", "ggpubr")
+install_packages <- list_packages[!list_packages %in% installed.packages()]
 for (lib in install_packages) install.packages(lib, dependencies = TRUE)
-lapply(extra_packages, library, character.only = TRUE)
+lapply(list_packages, library, character.only = TRUE)
 
 # After each coding session --------------------------------------------------|
 
 # Save any extra packages in your project's lockfile for future use:
 # 1. Navigate to 00-R-code from Files pane > open "Install-dependencies.R".
-# 2. Add extra package names to the packages_record() vector.
+# 2. Add extra package names to the list_packages() vector.
 # 3. Run the script > save & close.
-# 4. In this chunk, remove package name(s) from the extra_packages() vector.
+# 4. In this chunk, remove package name(s) from the list_packages() vector.
 # 5. Run this chunk > save.
 
 ```

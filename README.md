@@ -2,9 +2,9 @@
 
 #### By Raissa L Gill
 
-This is a template repository and workflow for R projects. It was originally modified and built upon [r-project-template](https://github.com/startyourlab/r-project-template) by [Start Your Lab](https://www.startyourlab.com/) and utilises the following packages: [config](https://www.rdocumentation.org/packages/config/versions/0.3.2), [devtools](https://www.rdocumentation.org/packages/devtools/versions/2.4.5), [fs](https://www.rdocumentation.org/packages/fs/versions/1.6.3), [here](https://www.rdocumentation.org/packages/here/versions/1.0.1), [lintr](https://www.rdocumentation.org/packages/lintr/versions/3.1.0), [markdown](https://www.rdocumentation.org/packages/markdown/versions/1.10), [plyr](https://www.rdocumentation.org/packages/plyr/versions/1.8.9), [renv](https://www.rdocumentation.org/packages/renv/versions/1.0.3), [rmarkdown](https://www.rdocumentation.org/packages/rmarkdown/versions/2.25), [styler](https://www.rdocumentation.org/packages/styler/versions/1.10.2) - see the end of this README file for full attributions.
+⏸️ If you're reading this in RStudio, select `Visual` mode (top of pane) for easy reading.
 
-Use this repository to develop your R projects with a set of useful features!
+▶️ Welcome to this template repository and workflow designed for R projects. This framework, originally derived from and expanded upon the foundations laid by Start Your Lab's [r-project-template](https://github.com/startyourlab/r-project-template), harnesses the power of several R packages, including [config](https://www.rdocumentation.org/packages/config/versions/0.3.2), [devtools](https://www.rdocumentation.org/packages/devtools/versions/2.4.5), [fs](https://www.rdocumentation.org/packages/fs/versions/1.6.3), [here](https://www.rdocumentation.org/packages/here/versions/1.0.1), [lintr](https://www.rdocumentation.org/packages/lintr/versions/3.1.0), [markdown](https://www.rdocumentation.org/packages/markdown/versions/1.10), [plyr](https://www.rdocumentation.org/packages/plyr/versions/1.8.9), [renv](https://www.rdocumentation.org/packages/renv/versions/1.0.3), [rmarkdown](https://www.rdocumentation.org/packages/rmarkdown/versions/2.25), [styler](https://www.rdocumentation.org/packages/styler/versions/1.10.2). Check the end of this README file for full attributions.
 
 ------------------------------------------------------------------------
 
@@ -139,12 +139,12 @@ Once your project is set up, your regular workflow will look something like this
 #### 3. Install, load and add packages to your project
 
 1.  Run the first chunk "`current dependencies`" to install and/or load packages from the project's lockfile.
-2.  As you progress through your project, add any extra packages to the `extra_packages()` vector in the second chunk "`add packages`" \> run the chunk to install and load these packages.
+2.  As you progress through your project, add any extra packages to the `list_packages()` vector in the second chunk "`add packages`" \> run the chunk to install and load these packages.
 
 #### 4. Write R code and source them via `Conductor.Rmd`
 
 1.  In the third chunk of `Conductor.Rmd`, begin writing your code for the project.
-2.  As you complete stages in the analysis, move your code out of `Conductor.Rmd` into their own separate files - these should ideally be a compilation of R scripts (faster running times) but can also be R notebooks. I've created a quick template for R scripts and R notebooks in `00-R-code` that you can use to create new files with nice structure and formatting (see `Template-R-script.R` and `Template-R-notebook.Rmd`).
+2.  As you complete stages in the analysis, move your code out of `Conductor.Rmd` into their own separate files. Ensure you include a commented list of package name(s) required for that code. I've created two templates `Template-R-script.R` and `Template-R-notebook.Rmd` in `00-R-code` that you can use to create new files with nice structure and formatting.
 3.  Save your code as separate files in the `00-R-code` directory - index these (00, 01 etc.) or create sub-folders if needed to keep track of code. Don't forget to use [tidyverse's file naming conventions](https://style.tidyverse.org/files.html#names).
 4.  In `Conductor.Rmd`, use `source()` functions to stitch your code together and run these as needed - `source()` uses relative pathing from the root folder (via `./`) to locate and run code. E.g. `source("./00-R-code/Install-dependencies.R", chdir = TRUE)`.
 
@@ -156,10 +156,10 @@ Once your project is set up, your regular workflow will look something like this
 
 #### 6. Format and save your code
 
-1.  After each coding session, add any extra package(s) to your project's lockfile by navigating to `00-R-code` from the `Files` pane \> `Install-dependencies.R` \> add packages to the `packages_record()` vector \> run the script \> save and close - this will load them with the first chunk in future sessions.
-2.  In the second chunk of `Conductor.Rmd`, remove the package name(s) from the `extra_packages()` vector \> run the chunk - check that your package(s) were installed/loaded without error.
+1.  After each coding session, add any extra package(s) to your project's lockfile by navigating to `00-R-code` from the `Files` pane \> `Install-dependencies.R` \> add packages to the `list_packages()` vector \> run the script \> save and close - this will load them with the first chunk in future sessions.
+2.  In the second chunk of `Conductor.Rmd`, remove the package name(s) from the `list_packages()` vector \> run the chunk - check that your package(s) were installed/loaded without error.
 3.  Before you proceed with the next step, commit and push the current version of your project to GitHub.
-4.  Format your code according to [tidyverse's style guide](https://style.tidyverse.org/) by running the third chunk line-by-line (don't click the play symbol!) and perform the following checks and/or changes as appropriate:
+4.  Format your code according to the [tidyverse style guide](https://style.tidyverse.org/) by running the third chunk line-by-line (don't click the play symbol!) and perform the following checks and/or changes as appropriate:
 
 `lintr::use_lintr(type = "tidyverse")` - can change type to other styles if preferred.
 
@@ -217,7 +217,7 @@ How to branch:
 ## Package attributions
 
 | Package                                                                      | Attribution                                                                                                                                                                                                                      |
-|----------------------|--------------------------------------------------|
+|-----------------------|-------------------------------------------------|
 | [config](https://www.rdocumentation.org/packages/config/versions/0.3.2)      | Allaire J (2023). \_config: Manage Environment Specific Configuration Values\_. R package version 0.3.2, <https://CRAN.R-project.org/package=config>.                                                                            |
 | [devtools](https://www.rdocumentation.org/packages/devtools/versions/2.4.5)  | Wickham H, Hester J, Chang W, Bryan J (2022). \_devtools: Tools to Make Developing R Packages Easier\_. R package version 2.4.5, <https://CRAN.R-project.org/package=devtools>.                                                  |
 | [fs](https://www.rdocumentation.org/packages/fs/versions/1.6.3)              | Hester J, Wickham H, Csárdi G (2023). \_fs: Cross-Platform File System Operations Based on 'libuv'\_. R package version 1.6.3, <https://CRAN.R-project.org/package=fs>.                                                          |

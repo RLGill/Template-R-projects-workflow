@@ -5,17 +5,32 @@
 # Description: Installs required packages & saves via 'renv' for future use
 # ============================================================================|
 
+# ----------------------------------------------------------------------------|
+# Read me!
+# ----------------------------------------------------------------------------|
+
+# This R script contains the following:
+# * List package(s) - vector of project & template/workflow dependencies
+# * Install, load & save package(s) - installs, loads and saves list of 
+#   package(s) to the project's lockfile.
+
+# Dependencies: "renv" (pre-loaded with template)
+
+# ----------------------------------------------------------------------------|
+# List package(s)
+# ----------------------------------------------------------------------------|
+
 # Define vector of package names
-packages_record <- c(
-
+list_packages <- c(
+  
   # Project dependencies:
-
+  
   # For example...
   # "ggplot2", # Nice plots
   # "ggpubr", # Saving plots
-
+  
   # Template/workflow dependencies:
-
+  
   "config", # Configure R environment
   "devtools", # Use development tools
   "fs", # For path encoding consistency
@@ -28,14 +43,18 @@ packages_record <- c(
   "styler" # Format code according to the tidyverse style guide
 )
 
+# ----------------------------------------------------------------------------|
+# Install, load & save package(s)
+# ----------------------------------------------------------------------------|
+
 # Identify packages that aren't already on this device
-install_packages <- packages_record[!packages_record %in% installed.packages()]
+install_packages <- list_packages[!list_packages %in% installed.packages()]
 
 # Install missing packages, including their dependencies
 for (lib in install_packages) install.packages(lib, dependencies = TRUE)
 
 # Load all packages
-sapply(packages_record, require, character = TRUE)
+sapply(list_packages, require, character = TRUE)
 
 # Take snapshot of packages (including their version) for future records
 renv::snapshot()

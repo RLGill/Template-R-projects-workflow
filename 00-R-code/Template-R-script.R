@@ -13,7 +13,7 @@
 # * Comments - how to write, format and structure your comments.
 # * Other pointers - tips on general structure and syntax.
 
-# Use this as a template for creating new R scripts
+# Dependencies: "ggplot2", "ggpubr"
 
 # More information on coding style can be found here: style.tidyverse.org
 
