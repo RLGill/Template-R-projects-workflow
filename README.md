@@ -167,7 +167,7 @@ Once your project is set up, your regular workflow will look something like this
 
 `styler::style_dir("./")` - reformats your entire project to the style specified in use_lintr(). Check the modified code identified above to ensure it works and you're happy with the change(s).
 
-`lintr::lint_dir()` - identify bad formatting that cannot be fixed by styler. Use this to manually make formatting changes according to the [tidyverse style guide](#0){style="font-size: 12pt;"}.
+`lintr::lint_dir()` - identify bad formatting that cannot be fixed by styler. Use this to manually make formatting changes according to the [tidyverse style guide](https://style.tidyverse.org/).
 
 5.  Save all changes and commit them to GitHub.com when ready.
 
