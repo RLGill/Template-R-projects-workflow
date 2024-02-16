@@ -14,11 +14,6 @@ This R notebook contains the following:
 * 01 Code - place-holder for your code
 * 02 Style - format code in your project's directory
 
-It has the following package dependencies (pre-loaded with template):
-```{r, warning=FALSE}
-sort(unique(dependencies(getSourceEditorContext()$path)$Package))
-```
-
 More information on coding style can be found here: style.tidyverse.org
 
 

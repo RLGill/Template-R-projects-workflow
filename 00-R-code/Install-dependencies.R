@@ -13,9 +13,6 @@
 # * Install, load & save package(s) - installs, loads and saves list of 
 #   package(s) to the project's lockfile.
 
-# It has the following package dependencies:
-sort(unique(dependencies(getSourceEditorContext()$path)$Package))
-
 # More information on coding style can be found here: style.tidyverse.org
 
 
