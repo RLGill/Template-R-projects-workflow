@@ -1,25 +1,25 @@
-# ============================================================================|
-# Title: Template - R script
-# Author: Raissa L Gill
-# Date: 2023-09-26
-# Description: Quick template and guide for formatting R scripts
-# ============================================================================|
+# ---
+# title: Template - R script
+# author: Raissa L Gill
+# date: 2023-09-26
+# description: Quick template and guide for formatting R scripts
+# ---
 
-# ----------------------------------------------------------------------------|
 # Read me!
-# ----------------------------------------------------------------------------|
+# ============================================================================|
 
 # This R script contains the following:
 # * Comments - how to write, format and structure your comments.
 # * Other pointers - tips on general structure and syntax.
 
-# Dependencies: "ggplot2", "ggpubr"
+# It has the following package dependencies:
+sort(unique(dependencies(getSourceEditorContext()$path)$Package))
 
 # More information on coding style can be found here: style.tidyverse.org
 
-# ----------------------------------------------------------------------------|
+
 # Comments
-# ----------------------------------------------------------------------------|
+# ============================================================================|
 
 # A one-liner comment has no full stop
 # Comments with at least two lines have a full stop, this sentence is getting
@@ -34,21 +34,30 @@
 
 # Different topics are separated by a single vertical space between lines
 
-# ----------------------------------------------------------------------------|
+
 # Other pointers
+# ============================================================================|
+
+# ----------------------------------------------------------------------------|
+# Structure
 # ----------------------------------------------------------------------------|
 
-# Structure ------------------------------------------------------------------|
+# --- Margins ---|
 
 # All lines should be <80 characters - you can configure a margin line in
 # "Tools" (top) > "Global Options..." > Code > Display > tick "Show margin" and
 # enter "80" in "Margin column" > OK.
 
+# --- Spacing ---|
+
 # Use of extra spaces is encouraged to vertically align multiple lines code.
 
 # Add a single space after commas and a space each side of operators (+ - etc.)
 
-# Syntax ---------------------------------------------------------------------|
+
+# ----------------------------------------------------------------------------|
+# Syntax
+# ----------------------------------------------------------------------------|
 
 # Use " " not ' ' for quotations
 

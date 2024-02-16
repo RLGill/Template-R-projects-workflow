@@ -1,10 +1,10 @@
-# R Project Template & Workflow
+# Template & workflow for R projects
 
 #### By Raissa L Gill
 
 ⏸️ If you're reading this in RStudio, select `Visual` mode (top of pane) for easy reading.
 
-▶️ Welcome to this template repository and workflow designed for R projects. This framework, originally derived from and expanded upon the foundations laid by Start Your Lab's [r-project-template](https://github.com/startyourlab/r-project-template), harnesses the power of several R packages, including [config](https://www.rdocumentation.org/packages/config/versions/0.3.2), [devtools](https://www.rdocumentation.org/packages/devtools/versions/2.4.5), [fs](https://www.rdocumentation.org/packages/fs/versions/1.6.3), [here](https://www.rdocumentation.org/packages/here/versions/1.0.1), [lintr](https://www.rdocumentation.org/packages/lintr/versions/3.1.0), [markdown](https://www.rdocumentation.org/packages/markdown/versions/1.10), [plyr](https://www.rdocumentation.org/packages/plyr/versions/1.8.9), [renv](https://www.rdocumentation.org/packages/renv/versions/1.0.3), [rmarkdown](https://www.rdocumentation.org/packages/rmarkdown/versions/2.25), [styler](https://www.rdocumentation.org/packages/styler/versions/1.10.2). Check the end of this README file for full attributions.
+▶️ Welcome to this template repository and workflow designed for R projects. This framework, originally derived from and expanded upon the foundations laid by Start Your Lab's [r-project-template](https://github.com/startyourlab/r-project-template), harnesses the power of several R packages, including [config](https://www.rdocumentation.org/packages/config/versions/0.3.2), [devtools](https://www.rdocumentation.org/packages/devtools/versions/2.4.5), [fs](https://www.rdocumentation.org/packages/fs/versions/1.6.3), [here](https://www.rdocumentation.org/packages/here/versions/1.0.1), [lintr](https://www.rdocumentation.org/packages/lintr/versions/3.1.0), [markdown](https://www.rdocumentation.org/packages/markdown/versions/1.10), [plyr](https://www.rdocumentation.org/packages/plyr/versions/1.8.9), [renv](https://www.rdocumentation.org/packages/renv/versions/1.0.3), [rmarkdown](https://www.rdocumentation.org/packages/rmarkdown/versions/2.25), [rstudioapi](https://rdocumentation.org/packages/rstudioapi/versions/0.15.0), [styler](https://www.rdocumentation.org/packages/styler/versions/1.10.2). Check the end of this README file for full attributions.
 
 ------------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ Complete the following each time you want to set up a new R project from this te
 
 #### 1. Create a new project repository from this template
 
-[Click here](https://github.com/RLGill/R-project-template) \> `Use this template` (green button) \> `Create a new repository` \> add a repository name, description and tick public/private - once generated, you will be redirected to the repository on GitHub.
+[Click here](https://github.com/RLGill/Template-R-projects-workflow) \> `Use this template` (green button) \> `Create a new repository` \> add a repository name, description and tick public/private - once generated, you will be redirected to the repository on GitHub.
 
 #### 2. Clone the repository to your local machine
 
@@ -82,7 +82,7 @@ Click `<> Code` (green button) \> `Open with GitHub Desktop` \> choose a locatio
 #### 3. Rename files in your root directory
 
 1.  Navigate to the R-project-template folder you created - this is your 'root' directory.
-2.  Change the file name `R-project-template.Rproj` to your repository name.
+2.  Change the file name `Template-R-projects-workflow.Rproj` to your repository name.
 3.  If applicable to your project, amend the license and author(s) in the `LICENSE.md` file - [click here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) for more information about licensing.
 
 #### 4. Organise folder structure and populate with initial files
@@ -138,13 +138,13 @@ Once your project is set up, your regular workflow will look something like this
 
 #### 3. Install, load and add packages to your project
 
-1.  Run the first chunk "`current dependencies`" to install and/or load packages from the project's lockfile.
-2.  As you progress through your project, add any extra packages to the `list_packages()` vector in the second chunk "`add packages`" \> run the chunk to install and load these packages.
+1.  Run the "`Current dependencies`" chunk to install and/or load packages from the project's lockfile.
+2.  As you progress through your project, add any extra packages to the `list_packages()` vector in the "`Add/load packages during a coding session`" chunk \> run the chunk to install and load these packages.
 
 #### 4. Write R code and source them via `Conductor.Rmd`
 
-1.  In the third chunk of `Conductor.Rmd`, begin writing your code for the project.
-2.  As you complete stages in the analysis, move your code out of `Conductor.Rmd` into their own separate files. Ensure you include a commented list of package name(s) required for that code. I've created two templates `Template-R-script.R` and `Template-R-notebook.Rmd` in `00-R-code` that you can use to create new files with nice structure and formatting.
+1.  Begin writing your code for the project in the "`Begin writing your code`" chunk of `Conductor.Rmd`.
+2.  As you complete stages in the analysis, move your code out of `Conductor.Rmd` into their own separate files. I've created two templates `Template-R-script.R` and `Template-R-notebook.Rmd` in `00-R-code` that you can use to create new files with nice structure and formatting.
 3.  Save your code as separate files in the `00-R-code` directory - index these (00, 01 etc.) or create sub-folders if needed to keep track of code. Don't forget to use [tidyverse's file naming conventions](https://style.tidyverse.org/files.html#names).
 4.  In `Conductor.Rmd`, use `source()` functions to stitch your code together and run these as needed - `source()` uses relative pathing from the root folder (via `./`) to locate and run code. E.g. `source("./00-R-code/Install-dependencies.R", chdir = TRUE)`.
 
@@ -156,10 +156,10 @@ Once your project is set up, your regular workflow will look something like this
 
 #### 6. Format and save your code
 
-1.  After each coding session, add any extra package(s) to your project's lockfile by navigating to `00-R-code` from the `Files` pane \> `Install-dependencies.R` \> add packages to the `list_packages()` vector \> run the script \> save and close - this will load them with the first chunk in future sessions.
-2.  In the second chunk of `Conductor.Rmd`, remove the package name(s) from the `list_packages()` vector \> run the chunk - check that your package(s) were installed/loaded without error.
+1.  After each coding session, add any extra package(s) to your project's lockfile by navigating to `00-R-code` from the `Files` pane \> `Install-dependencies.R` \> add packages to the `list_packages()` vector \> run the script \> save and close - this will load them with the "`Current dependencies`" chunk in future sessions.
+2.  In the "`Add/load packages during a coding session`" chunk of `Conductor.Rmd`, remove the package name(s) from the `list_packages()` vector \> run the chunk - check that your package(s) were installed/loaded without error.
 3.  Before you proceed with the next step, commit and push the current version of your project to GitHub.
-4.  Format your code according to the [tidyverse style guide](https://style.tidyverse.org/) by running the third chunk line-by-line (don't click the play symbol!) and perform the following checks and/or changes as appropriate:
+4.  Format your code according to the [tidyverse style guide](https://style.tidyverse.org/) by running the "`Format code as you complete stages`" chunk line-by-line (don't click the play symbol!) and perform the following checks and/or changes as appropriate:
 
 `lintr::use_lintr(type = "tidyverse")` - can change type to other styles if preferred.
 
@@ -217,7 +217,7 @@ How to branch:
 ## Package attributions
 
 | Package                                                                      | Attribution                                                                                                                                                                                                                      |
-|-----------------------|-------------------------------------------------|
+|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [config](https://www.rdocumentation.org/packages/config/versions/0.3.2)      | Allaire J (2023). \_config: Manage Environment Specific Configuration Values\_. R package version 0.3.2, <https://CRAN.R-project.org/package=config>.                                                                            |
 | [devtools](https://www.rdocumentation.org/packages/devtools/versions/2.4.5)  | Wickham H, Hester J, Chang W, Bryan J (2022). \_devtools: Tools to Make Developing R Packages Easier\_. R package version 2.4.5, <https://CRAN.R-project.org/package=devtools>.                                                  |
 | [fs](https://www.rdocumentation.org/packages/fs/versions/1.6.3)              | Hester J, Wickham H, Csárdi G (2023). \_fs: Cross-Platform File System Operations Based on 'libuv'\_. R package version 1.6.3, <https://CRAN.R-project.org/package=fs>.                                                          |
@@ -227,4 +227,5 @@ How to branch:
 | [plyr](https://www.rdocumentation.org/packages/plyr/versions/1.8.9)          | Hadley Wickham (2011). The Split-Apply-Combine Strategy for Data Analysis. Journal of Statistical Software, 40(1), 1-29. URL <https://www.jstatsoft.org/v40/i01/.>                                                               |
 | [renv](https://www.rdocumentation.org/packages/renv/versions/1.0.3)          | Ushey K, Wickham H (2023). \_renv: Project Environments\_. R package version 1.0.3, <https://CRAN.R-project.org/package=renv>.                                                                                                   |
 | [rmarkdown](https://www.rdocumentation.org/packages/rmarkdown/versions/2.25) | Allaire J, Xie Y, Dervieux C, McPherson J, Luraschi J, Ushey K, Atkins A, Wickham H, Cheng J, Chang W, Iannone R (2023). \_rmarkdown: Dynamic Documents for R\_. R package version 2.25, <https://github.com/rstudio/rmarkdown>. |
+| [rstudioapi](https://rdocumentation.org/packages/rstudioapi/versions/0.15.0) | Ushey K, Allaire J, Wickham H, Ritchie G (2023). \_rstudioapi: Safely Access the RStudio API\_. R package version 0.15.0, <https://CRAN.R-project.org/package=rstudioapi>.                                                       |
 | [styler](https://www.rdocumentation.org/packages/styler/versions/1.10.2)     | Müller K, Walthert L (2023). \_styler: Non-Invasive Pretty Printing of R Code\_. R package version 1.10.2, <https://CRAN.R-project.org/package=styler>.                                                                          |

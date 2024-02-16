@@ -6,6 +6,7 @@ description: Conductor notebook for running R projects
 ---
 
 # Read me!
+==============================================================================|
 
 This R notebook contains the following:
 * 00 Packages - install and load dependencies, including those currently saved
@@ -13,28 +14,29 @@ This R notebook contains the following:
 * 01 Code - place-holder for your code
 * 02 Style - format code in your project's directory
 
-Dependencies: "renv" (pre-loaded with template)
+It has the following package dependencies (pre-loaded with template):
+```{r, warning=FALSE}
+sort(unique(dependencies(getSourceEditorContext()$path)$Package))
+```
 
+More information on coding style can be found here: style.tidyverse.org
 
-# Code starts here:
 
 # 00 Packages
+==============================================================================|
 
 ```{r Current dependencies}
 
 # Install and load packages in project's lockfile
-
 source("./00-R-code/Install-dependencies.R", chdir = TRUE)
 
 ```
 
-```{r Add packages}
-
-# During a coding session ----------------------------------------------------|
+```{r Add/load packages during a coding session}
 
 # As you progress and need additional packages for your project, install and 
 # load them here by following these steps:
-# 1. Add names of any packages to the list_packages() vector below.
+# 1. Add names of any packages to the list_packages() vector below:
 # 2. Run this chunk.
 
 # The code:
@@ -43,7 +45,9 @@ install_packages <- list_packages[!list_packages %in% installed.packages()]
 for (lib in install_packages) install.packages(lib, dependencies = TRUE)
 lapply(list_packages, library, character.only = TRUE)
 
-# After each coding session --------------------------------------------------|
+```
+
+```{r Save packages after a coding session}
 
 # Save any extra packages in your project's lockfile for future use:
 # 1. Navigate to 00-R-code from Files pane > open "Install-dependencies.R".
@@ -56,22 +60,48 @@ lapply(list_packages, library, character.only = TRUE)
 
 
 # 01 Code
+==============================================================================|
 
-```{r Coding task}
+```{r Begin writing your code}
 
 # I am coding now
 # So fun
 
 ```
 
+```{r Move/save code as you complete code}
+
+# As you complete stages in the analysis, move your code out of Conductor.Rmd 
+# into their own separate files. I've created two templates in 00-R-code that 
+# you can use to create new files with nice structure and formatting: 
+# Template-R-script.R and Template-R-notebook.Rmd.
+
+# Save your code as separate files in the 00-R-code directory - index these 
+# (00, 01 etc.) or create sub-folders if needed to keep track of code. Don't 
+# forget to use good file naming conventions (e.g., tidyverse).
+
+```
+
+```{r Source code as needed}
+
+# Use source() functions to stitch your code together and run as needed - 
+# source() uses relative pathing from the root folder (via ./) to locate and 
+# run code. E.g. source("./00-R-code/Install-dependencies.R", chdir = TRUE).
+
+```
+
 
 # 02 Style
+==============================================================================|
 
-```{r Format code}
+```{r Format code as you complete stages}
 
-# Warning - run this chunk line by line!
+# !!! WARNING !!!
+# Run this chunk line by line and follow it step-by-step!
 
-# Select/load a style guide
+# 1. Commit your changes to GitHub now!
+
+# 2. Select/load style guide
 if (FALSE) {
   
   # First time
@@ -81,18 +111,20 @@ if (FALSE) {
   lintr::lint_dir()
 }
 
-# Check entire directory
+# 3. Make note of which files in your project need styling
 lintr::lint_dir()
 
-# Format all code in your project according to the selected style guide
+# 4. Format all code in your project according to the selected style guide
 styler::style_dir("./")
 
-# Manually check the modified code from above to ensure it works and you're
+# 5. Check the modified code from above to ensure it works and you're
 # happy with any change(s).
 
-# Check directory again for changes requiring user modification
+# 6. Check directory again for any changes requiring user modification
 lintr::lint_dir()
 
-# Make the manual modification(s) from above
+# 7. Make the manual modification(s) from above
+
+# 8. When you're happy everything works, commit your changes to GitHub.
 
 ```

@@ -6,25 +6,28 @@ description: Quick template and guide for formatting R notebooks
 ---
 
 # Read me!
+==============================================================================|
 
 This R notebook contains the following:
 * Comments - how to write, format and structure your comments.
 * Other pointers - tips on general structure and syntax.
 
-Dependencies: "ggplot2", "ggpubr"
+It has the following package dependencies:
+```{r, warning=FALSE}
+sort(unique(dependencies(getSourceEditorContext()$path)$Package))
+```
 
 More information on coding style can be found here: style.tidyverse.org
 
 
-# Code starts here:
-
 # Comments
+==============================================================================|
 
 ```{r Comments}
 
 # A one-liner comment has no full stop
 # Comments with at least two lines have a full stop, this sentence is getting
-# quite longbut is necessary for demonstration.
+# quite long but is necessary for demonstration.
 
 # Dot-pointed comments (*) have a full stop, regardless of whether they are
 # one- or two-liners, like so:
@@ -39,16 +42,17 @@ More information on coding style can be found here: style.tidyverse.org
 
 
 # Other pointers
+==============================================================================|
 
 ```{r Structure}
 
-# Margins --------------------------------------------------------------------|
+# --- Margins ---|
 
 # All lines should be <80 characters - you can configure a margin line in
 # "Tools" (top) > "Global Options..." > Code > Display > tick "Show margin" and
 # enter "80" in "Margin column" > OK.
 
-# Spacing --------------------------------------------------------------------|
+# --- Spacing ---|
 
 # Use of extra spaces is encouraged to vertically align multiple lines code.
 
