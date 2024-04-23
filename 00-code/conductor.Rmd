@@ -1,5 +1,5 @@
 ---
-title: "Conductor"
+title: "conductor"
 author: Raissa L Gill
 date: 2023-10-12
 description: Conductor notebook for running R projects
@@ -23,7 +23,7 @@ More information on coding style can be found here: style.tidyverse.org
 ```{r Current dependencies}
 
 # Install and load packages in project's lockfile
-source("./00-R-code/Install-dependencies.R", chdir = TRUE)
+source("./00-code/00-install-dependencies.R", chdir = TRUE)
 
 ```
 
